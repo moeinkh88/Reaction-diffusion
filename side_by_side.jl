@@ -73,7 +73,7 @@ u1_end_nomem = reshape(Y_nomem[end, 1:N^2], N, N)
 u1_end_mem = reshape(Y_mem[end, 1:N^2], N, N)
 
 # Common heatmap settings to keep code clean
-hm_args = (c=:magma, aspect_ratio=:equal, border=:none, legend=:none, clims=(0,1))
+hm_args = (c=:viridis, aspect_ratio=:equal, border=:none, legend=:none, clims=(0,1))
 
 p_start_nomem = heatmap(u1_start; title="No Memory (t=0)", hm_args...)
 p_end_nomem   = heatmap(u1_end_nomem; title="No Memory (t=500)", hm_args...)
