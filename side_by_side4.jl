@@ -25,7 +25,7 @@ end
 # 2. Setup Parameters & Identical Initial Conditions
 N = 50 # Grid size 
 D1, D2, F_rate, k_rate = 0.32, 0.06, 0.032, 0.060
-tSpan = [0.0, 1000.0]
+tSpan = [0.0, 3000.0]
 dt = 0.1 
 
 u1_0 = ones(N, N)
@@ -94,17 +94,17 @@ hm_args = (c=:viridis, aspect_ratio=:equal, border=:none, legend=:none, clims=(0
 # Top Row: No Memory
 p_300_nomem = heatmap(u1_300_nomem; title="No Memory (t=300)", hm_args...)
 p_600_nomem = heatmap(u1_600_nomem; title="No Memory (t=600)", hm_args...)
-p_1000_nomem = heatmap(u1_1000_nomem; title="No Memory (t=1000)", hm_args...)
+p_1000_nomem = heatmap(u1_1000_nomem; title="No Memory (t=3000)", hm_args...)
 
 # Middle Row: Identical Memory
 p_300_r1 = heatmap(u1_300_r1; title="Identical Memory (t=300)", hm_args...)
 p_600_r1 = heatmap(u1_600_r1; title="Identical Memory (t=600)", hm_args...)
-p_1000_r1 = heatmap(u1_1000_r1; title="Identical Memory (t=1000)", hm_args...)
+p_1000_r1 = heatmap(u1_1000_r1; title="Identical Memory (t=3000)", hm_args...)
 
 # Bottom Row: Mismatched Memory
 p_300_r2 = heatmap(u1_300_r2; title="Mismatched Memory (t=300)", hm_args...)
 p_600_r2 = heatmap(u1_600_r2; title="Mismatched Memory (t=600)", hm_args...)
-p_1000_r2 = heatmap(u1_1000_r2; title="Mismatched Memory (t=1000)", hm_args...)
+p_1000_r2 = heatmap(u1_1000_r2; title="Mismatched Memory (t=3000)", hm_args...)
 
 # Combine into a 3x3 grid
 static_plot = plot(p_300_nomem, p_600_nomem, p_1000_nomem, 
@@ -112,8 +112,8 @@ static_plot = plot(p_300_nomem, p_600_nomem, p_1000_nomem,
                    p_300_r2, p_600_r2, p_1000_r2, 
                    layout=(3,3), size=(1200, 1200), margin=5Plots.mm)
 
-savefig(static_plot, "Memory_Comparison_Static4.png")
-savefig(static_plot, "Memory_Comparison_Static4.svg")
+savefig(static_plot, "Memory_Comparison_Static5.png")
+savefig(static_plot, "Memory_Comparison_Static5.svg")
 
 # ---------------------------------------------------------
 # VISUALIZATION 2: Side-by-Side Evolution GIF
@@ -144,5 +144,5 @@ for i in 1:save_interval:num_steps
 end
 
 # Save GIF
-gif(anim, "Memory_Comparison_Evolution4.gif", fps=15)
-println("Done! Files saved as Memory_Comparison_Static4.png/svg and Memory_Comparison_Evolution4.gif")
+gif(anim, "Memory_Comparison_Evolution5.gif", fps=5)
+println("Done! Files saved as Memory_Comparison_Static5.png/svg and Memory_Comparison_Evolution5.gif")

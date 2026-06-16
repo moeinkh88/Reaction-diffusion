@@ -51,7 +51,7 @@ function animate_gray_scott()
     end
 
     # Export the animation
-    gif(anim, "gray_scott_evolution.gif", fps=15)
+    gif(anim, "gray_scott_evolution.gif", fps=55)
     println("Evolution saved to 'gray_scott_evolution.gif'")
 end
 
